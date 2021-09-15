@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private string WALK_ANIMATION = "Walk";
     private bool isGrounded = true;
     private string GROUND_TAG = "Ground";
+    private string ENEMY_TAG = "Enemy";
 
     // Awake
     private void Awake() 
@@ -85,5 +86,17 @@ public class Player : MonoBehaviour
             isGrounded = true;
             Debug.Log("ground");
         }
+        
+        if (other.gameObject.CompareTag(ENEMY_TAG)) {
+            Destroy(gameObject);
+        };
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(ENEMY_TAG)) {
+            Destroy(gameObject);
+        }
     }
 }
+
