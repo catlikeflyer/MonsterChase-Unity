@@ -16,6 +16,7 @@ public class CameraFollow : MonoBehaviour
     {
         // Finds player using the tag functionality
         player = GameObject.FindWithTag("Player").transform;
+        Debug.Log("The index is: " + GameManager.instance.CharIndex);
     }
 
     // Update is called once per frame
